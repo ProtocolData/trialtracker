@@ -63,17 +63,16 @@ Cancer is one of the leading causes of death worldwide. The way we test and appr
     driven by inability to 
     <a href="https://pubmed.ncbi.nlm.nih.gov/34823582/">recruit</a>
     enough patients.
-
-    And yet many patients are routinely 
+And yet many patients are routinely 
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3980490/">excluded</a> 
     from trials, including minority groups who are most affected by the disease.
     <br />
     <br />
 
-    The key to solving these problems is in changing how we design clinical trials. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design and patient recruitment decisions in Oncology. A few goals of this project:
+The key to solving these problems is in changing how we design clinical trials. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design and patient recruitment decisions in Oncology. A few goals of this project:
 
     
-    <br /> - Explore clinical trial data from clinicaltrials.gov
+br /> - Explore clinical trial data from clinicaltrials.gov
     <br /> - Develop a method to extract structured core eligibility criteria for cancer trials (extending work  
     <a href="https://pubmed.ncbi.nlm.nih.gov/30753493/">here</a>  and 
     <a href="https://arxiv.org/abs/2006.07296">here</a>)
@@ -148,7 +147,9 @@ Contributions are what make the open source community such an amazing place to b
 <!-- LICENSE -->
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See 
+<a href="https://github.com/zfx0726/trialtracker/blob/main/LICENSE">`LICENSE`</a> 
+for more information.
 
 
 
