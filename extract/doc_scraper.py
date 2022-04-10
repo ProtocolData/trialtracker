@@ -36,6 +36,8 @@ def scrape_docs(nct_list):
   url_base= 'https://clinicaltrials.gov/ct2/show/'
   nct=''
 
+  scraped_doc_counter=0
+
   # Create object page
   doc_dict={}
   start=False
@@ -53,7 +55,8 @@ def scrape_docs(nct_list):
 
       try:
         page = requests.get(url)
-        soup = BeautifulSoup(page.text, 'lxml') #Fails on this STEP!
+        soup = BeautifulSoup(page.text, 'lxml')
+        scraped_doc_counter+=1
 
         docs = soup.find_all("a", {"class": "tr-study-link"})
         doc_dict={}
@@ -74,6 +77,8 @@ def scrape_docs(nct_list):
         append_record(doc_dict)
       except:
         print("error: ",url)
+
+  return scraped_doc_counter
 
 
 # Add argparse https://stackoverflow.com/questions/1009860/how-to-read-process-command-line-arguments
