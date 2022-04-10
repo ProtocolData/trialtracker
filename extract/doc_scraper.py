@@ -5,6 +5,7 @@ import json
 import os
 from collections import OrderedDict
 import re
+import argparse
 
 
 
@@ -75,9 +76,46 @@ def scrape_docs(nct_list):
         print("error: ",url)
 
 
+# Add argparse https://stackoverflow.com/questions/1009860/how-to-read-process-command-line-arguments
+# Structure argparse https://www.reddit.com/r/learnpython/comments/3do2wr/where_to_put_argparse/
+# Docs https://docs.python.org/3/library/argparse.html
+# Tutorial https://docs.python.org/3/howto/argparse.html
+
+def parse_args():
+    parser=argparse.ArgumentParser(description="Scrape document links from clinicaltrials.gov")
+    
+    parser.add_argument("-t", "--testtrials", dest='test_trials', action="store_true", 
+                    help="Use test nct trial ids to avoid long query times.")
+
+    parser.add_argument("-f", "--funfact", dest='fun_fact', action="store_true",
+                    help="Returns a fun fact.  There is only one static fun fact.")
+
+    args=parser.parse_args()
+    
+    if args.test_trials:
+      print("Test query used")
+    
+    if args.fun_fact:
+      print("Contagious cancers are known to be transmitted between animals like dogs and Tasmanian Devils, and in rare cases, between mother and fetus: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3228048/")
+
+    return args
+
+def main():
+  print(f"Running {__file__} file directly...")
+  args=parse_args()
+  
+  nct_list=[]
+
+  if args.test_trials:
+    nct_list=['NCT03386513','NCT03520959','NCT03490747']
+
+  else:
+    query=aq.get_default_query()
+    df=aq.query_aact(query)
+    nct_list=df.nct_id.tolist()
+
+  scrape_docs(nct_list)
+
+
 if __name__ == "__main__":
-	print(f"Running {__file__} file directly...")
-	query=aq.get_default_query()
-	df=aq.query_aact(query)
-	nct_list=df.nct_id.tolist()
-	scrape_docs(nct_list)
+  main()
