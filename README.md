@@ -69,9 +69,7 @@ And yet many patients are routinely
     <br />
     <br />
 
-The key to solving these problems is in changing how we design clinical trials. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design and patient recruitment decisions in Oncology. A few goals of this project:
-
-    
+The key to solving these problems is in changing how we design clinical trials. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design and patient recruitment decisions in Oncology. A few goals of this project:    
 <br /> - Explore clinical trial data from clinicaltrials.gov
     <br /> - Develop a method to extract structured core eligibility criteria for cancer trials (extending work  
     <a href="https://pubmed.ncbi.nlm.nih.gov/30753493/">here</a>  and 
