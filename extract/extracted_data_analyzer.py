@@ -1,13 +1,14 @@
 import json
 from collections import OrderedDict
+import os
 
 
-
-def read_doc_links():
+#TODO: This path thing is probably not ideal
+def read_doc_links(path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "extracted_data/trial_docs.json")): 
   data=OrderedDict()
 
   try:
-    with open('extracted_data/trial_docs.json') as f:
+    with open(path) as f:
       data = json.load(f, object_pairs_hook=OrderedDict)
 
   except:
@@ -16,7 +17,7 @@ def read_doc_links():
   return data
 
 def main():
-  trial_docs=read_doc_links()
+  trial_docs=read_doc_links(path)
   print(len(trial_docs)," items read.")
 
 

@@ -1,4 +1,10 @@
-import aact_querier as aq
+
+try:
+    from extract import aact_querier as aq
+except (ModuleNotFoundError, ImportError):
+    import aact_querier as aq
+#TODO: Can't be right, need to fix: https://stackoverflow.com/questions/44315077/import-error-running-unittest-in-python3
+
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -9,34 +15,40 @@ import argparse
 
 
 
-def append_record(a_dict):
+def append_record(a_dict, path):  
   try:
-    with open('extracted_data/trial_docs.json') as f:
+    with open(path) as f:
       data = json.load(f)
     data.update(a_dict)
     
-    with open('extracted_data/trial_docs.json', 'w') as f:
+    with open(path, 'w') as f:
       json.dump(data, f)
-  except:
-    with open('extracted_data/trial_docs.json', 'w') as f:
+
+  except Exception as e:
+    with open(path, 'w') as f:
       json.dump(a_dict, f)
 
+      
 
-def get_last_nct():
+
+def get_last_nct(path):
   try:
-    with open('extracted_data/trial_docs.json') as f:
+    with open(path) as f:
       data = json.load(f, object_pairs_hook=OrderedDict)
     return next(reversed(data))
 
-  except:
+  except Exception as e:
+    # print(e)
+    print(f"Tried initializing based on previous file, but no {path} file created yet.")
     return None
 
 
-def scrape_docs(nct_list):
+def scrape_docs(nct_list, path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "extracted_data/trial_docs.json")):
   url_base= 'https://clinicaltrials.gov/ct2/show/'
   nct=''
 
   scraped_doc_counter=0
+  last_nct=get_last_nct(path)
 
   # Create object page
   doc_dict={}
@@ -47,8 +59,8 @@ def scrape_docs(nct_list):
 
     url=url_base+nct
 
-    if (get_last_nct()==nct) or (get_last_nct() is None):
-      print("Started! NCT", nct)
+    if (not start)&((last_nct==nct) or (last_nct is None)):
+      # print("Started! ", nct)
       start=True
 
     if start:
@@ -56,7 +68,6 @@ def scrape_docs(nct_list):
       try:
         page = requests.get(url)
         soup = BeautifulSoup(page.text, 'lxml')
-        scraped_doc_counter+=1
 
         docs = soup.find_all("a", {"class": "tr-study-link"})
         doc_dict={}
@@ -74,7 +85,9 @@ def scrape_docs(nct_list):
             nct_dict['ICF']='https://clinicaltrials.gov'+d['href']
             
         doc_dict[nct]=nct_dict
-        append_record(doc_dict)
+        append_record(doc_dict, path)
+        scraped_doc_counter+=1
+
       except:
         print("error: ",url)
 
@@ -90,7 +103,7 @@ def parse_args():
     parser=argparse.ArgumentParser(description="Scrape document links from clinicaltrials.gov")
     
     parser.add_argument("-t", "--testtrials", dest='test_trials', action="store_true", 
-                    help="Use test nct trial ids to avoid long query times.")
+                    help="Use test nct trial ids to avoid long query times.  Stores test json in trial_docs_test.json")
 
     parser.add_argument("-f", "--funfact", dest='fun_fact', action="store_true",
                     help="Returns a fun fact.  There is only one static fun fact.")
@@ -110,16 +123,20 @@ def main():
   args=parse_args()
   
   nct_list=[]
+  my_path = os.path.abspath(os.path.dirname(__file__))
+  path = os.path.join(my_path, "extracted_data/trial_docs.json")
 
   if args.test_trials:
     nct_list=['NCT03386513','NCT03520959','NCT03490747']
+    path = os.path.join(my_path, "extracted_data/trial_docs_test.json")
 
   else:
     query=aq.get_default_query()
     df=aq.query_aact(query)
     nct_list=df.nct_id.tolist()
 
-  scrape_docs(nct_list)
+  trials_scraped=scrape_docs(nct_list, path)
+  print(f"{trials_scraped} trial docs scraped to {path}.")
 
 
 if __name__ == "__main__":
