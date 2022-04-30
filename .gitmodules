@@ -1,0 +1,3 @@
+[submodule "extract/Clinical-Trial-Parser"]
+	path = extract/Clinical-Trial-Parser
+	url = https://github.com/facebookresearch/Clinical-Trial-Parser
