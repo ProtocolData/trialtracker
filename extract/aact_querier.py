@@ -82,7 +82,9 @@ def get_default_query():
 	on s.nct_id=t.nct_id
 
 	left join ctgov.brief_summaries b
-	on b.nct_id=t.nct_id;
+	on b.nct_id=t.nct_id
+
+	order by t.nct_id asc;
 	"""
 
 	return query
@@ -109,7 +111,7 @@ def query_aact(query):
 	finally:
 	  if (connection):
 	      connection.close()
-	      print("PostgreSQL connection is closed")
+	      print("PostgreSQL connection is now closed")
   
 
 if __name__ == "__main__":
