@@ -25,14 +25,26 @@ def fb_parser_query():
 	inner join ctgov.conditions c
 	on s.nct_id=c.nct_id
 	where 
+	(
 	(c.downcase_name like '%cancer%'
 	or c.downcase_name like '%neoplasm%'
 	or c.downcase_name like '%tumor%'
 	or c.downcase_name like '%malignancy%'
 	or c.downcase_name like '%oncology%'
 	or c.downcase_name like '%neoplasia%'
-	or c.downcase_name like '%neoplastic%')
-	),
+	or c.downcase_name like '%neoplastic%'
+	) 
+	# or
+	# (s.brief_title like '%cancer%'
+	# or s.brief_title like '%neoplasm%'
+	# or s.brief_title like '%tumor%'
+	# or s.brief_title like '%malignancy%'
+	# or s.brief_title like '%oncology%'
+	# or s.brief_title like '%neoplasia%'
+	# or s.brief_title like '%neoplastic%')
+	))
+
+	,
 
 	conditions as (
 	SELECT
@@ -90,8 +102,12 @@ def main():
 	path = os.path.join(my_path, "extracted_data/ct_fb_parser_data.csv")
 	print(path)
 	
-	df=aq.query_aact(fb_parser_query())
-	df.to_csv(path)
+	try:
+		df=aq.query_aact(fb_parser_query())
+		df.to_csv(path)
+
+	except:
+	  print("Data download failed.  Please check credentials and query and try again.")
 
 if __name__ == "__main__":
 	main()

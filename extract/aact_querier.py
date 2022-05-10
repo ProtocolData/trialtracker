@@ -29,14 +29,25 @@ def get_default_query():
 	inner join ctgov.conditions c
 	on s.nct_id=c.nct_id
 	where 
+	(
 	(c.downcase_name like '%cancer%'
 	or c.downcase_name like '%neoplasm%'
 	or c.downcase_name like '%tumor%'
 	or c.downcase_name like '%malignancy%'
 	or c.downcase_name like '%oncology%'
 	or c.downcase_name like '%neoplasia%'
-	or c.downcase_name like '%neoplastic%')
-	),
+	or c.downcase_name like '%neoplastic%'
+	) 
+	# or
+	# (s.brief_title like '%cancer%'
+	# or s.brief_title like '%neoplasm%'
+	# or s.brief_title like '%tumor%'
+	# or s.brief_title like '%malignancy%'
+	# or s.brief_title like '%oncology%'
+	# or s.brief_title like '%neoplasia%'
+	# or s.brief_title like '%neoplastic%')
+	))
+	,
 
 	conditions as (
 	SELECT
@@ -91,6 +102,7 @@ def get_default_query():
 
 
 def query_aact(query):
+	connection=False
 	try:
 	  # Connect to an existing database
 	  connection = psycopg2.connect(user=getpass.getpass('What is your AACT username?'),
