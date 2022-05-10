@@ -112,6 +112,13 @@ conda activate trialtrackerenv_py36
 ```
 
 
+### Running eligibility criteria extraction with <a href="https://github.com/facebookresearch/Clinical-Trial-Parser">FB Clinical Trial Parser</a>
+
+1. Clone the repo
+```sh
+git clone https://github.com/zfx0726@gmail.com/trialtracker.git
+```
+2. Navigate into the trialtracker project directory and recreate the conda environment.
 
  <!-- USAGE EXAMPLES -->
 <!-- ## Usage
