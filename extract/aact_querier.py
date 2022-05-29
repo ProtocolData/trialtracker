@@ -101,6 +101,71 @@ def get_default_query():
 	return query
 
 
+def get_cancer_trial_sites():
+	query="""
+	with cancer_trials as (select  distinct s.nct_id,s.brief_title AS title,
+	s.start_date,
+	s.overall_status,
+	s.phase,
+	s.enrollment,
+	s.enrollment_type,
+		
+	s.study_type,
+		s.number_of_arms,
+		s.number_of_groups,
+		s.why_stopped,
+		s.has_dmc,
+		s.is_fda_regulated_drug,
+		s.is_fda_regulated_device,
+		s.is_unapproved_device,
+		s.is_ppsd,
+		s.is_us_export
+
+	from ctgov.studies s
+	inner join ctgov.conditions c
+	on s.nct_id=c.nct_id
+	where 
+	(
+	(c.downcase_name like '%cancer%'
+	or c.downcase_name like '%neoplasm%'
+	or c.downcase_name like '%tumor%'
+	or c.downcase_name like '%malignancy%'
+	or c.downcase_name like '%oncology%'
+	or c.downcase_name like '%neoplasia%'
+	or c.downcase_name like '%neoplastic%'
+	) 
+
+	)) 
+
+	select 
+	t.nct_id,
+	t.title,
+	CASE WHEN cv.has_us_facility THEN 'true' ELSE 'false' END AS has_us_facility,
+	t.start_date, t.overall_status, t.phase, t.enrollment, t.enrollment_type, t.study_type, t.number_of_arms, t.number_of_groups, t.why_stopped, t.has_dmc, t.is_fda_regulated_drug, t.is_fda_regulated_device, t.is_unapproved_device, t.is_ppsd, t.is_us_export,
+	f.id as facility_id,
+	f.name as facility_name,
+	f.status as facility_status,
+	f.city as facility_city,
+	f.state as facility_state,
+	f.zip as facility_zip,
+	f.country as facility_country
+
+	from cancer_trials t
+
+	left join ctgov.calculated_values cv
+	on cv.nct_id=t.nct_id
+
+	left join ctgov.facilities f
+	on t.nct_id=f.nct_id
+	
+	order by t.nct_id asc
+
+
+	;
+	"""
+
+	return query
+
 def query_aact(query):
 	connection=False
 	try:
