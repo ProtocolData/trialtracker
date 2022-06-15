@@ -25,7 +25,6 @@ def fb_parser_query():
 	inner join ctgov.conditions c
 	on s.nct_id=c.nct_id
 	where 
-	(
 	(c.downcase_name like '%cancer%'
 	or c.downcase_name like '%neoplasm%'
 	or c.downcase_name like '%tumor%'
@@ -33,16 +32,41 @@ def fb_parser_query():
 	or c.downcase_name like '%oncology%'
 	or c.downcase_name like '%neoplasia%'
 	or c.downcase_name like '%neoplastic%'
-	) 
-	# or
-	# (s.brief_title like '%cancer%'
-	# or s.brief_title like '%neoplasm%'
-	# or s.brief_title like '%tumor%'
-	# or s.brief_title like '%malignancy%'
-	# or s.brief_title like '%oncology%'
-	# or s.brief_title like '%neoplasia%'
-	# or s.brief_title like '%neoplastic%')
-	))
+	or c.downcase_name like '%carcinoma%'
+	or c.downcase_name like '%lymphoma%'
+	or c.downcase_name like '%metastatic%%'
+	or c.downcase_name like '%metastasis%'
+	or c.downcase_name like '%metastases%'
+	or c.downcase_name like '%leukemia%'
+	or c.downcase_name like '%leukaemia%'
+	or c.downcase_name like '%myeloma%'
+	or c.downcase_name like '%mesothelioma%'
+	or c.downcase_name like '%malignan%'
+	or c.downcase_name like '%hnscc%'
+	or c.downcase_name like '%melanoma%'
+	or c.downcase_name like '%polycythemia vera%'
+	or c.downcase_name like '%blastoma%'
+	or c.downcase_name like '%sarcoma%'
+	or c.downcase_name like '%nsclc%'
+	or (downcase_name like '%gist%' and downcase_name not like '%regist%' and downcase_name not like '%logist%')
+	or c.downcase_name like '%crpc%'
+	or c.downcase_name like '%myelodysplastic syndrome%'
+	or c.downcase_name like '%mds%'
+	or c.downcase_name like '%cytoma%'
+	or c.downcase_name like '%waldenstrom macroglobulinemia%'
+	or c.downcase_name like '%myelofibrosis%'
+	or c.downcase_name like '%hodgkin%'
+	or c.downcase_name like '%cml%'
+	or c.downcase_name like '%aml%'
+	or c.downcase_name like '%glioma%'
+	or c.downcase_name like '%ependymoma%'
+	or c.downcase_name like '%seminoma%'
+	or c.downcase_name like '%chordoma%'
+	or c.downcase_name like '%pseudomyxoma peritonei%'
+	or c.downcase_name like '%fibroxanthoma%'
+	)
+
+	)
 
 	,
 

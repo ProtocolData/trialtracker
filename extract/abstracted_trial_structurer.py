@@ -83,7 +83,7 @@ if __name__ == "__main__":
   dff['same_coder']=dff['same_coder'].astype(int)
 
   
-  # Remove double-reviewed by the same coder.  Note this could be interesting to see if they agree with themselves.
+  # Remove double-reviewed by the same coder.  Note this could be interesting to see why they disagree with themselves.
   dff_clean=dff[dff.same_coder==0]
   dff_clean.nct.nunique()
 

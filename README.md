@@ -112,11 +112,13 @@ conda activate trialtrackerenv_py36
 ```
 
 
+
+
 ### Running eligibility criteria extraction with <a href="https://github.com/facebookresearch/Clinical-Trial-Parser">FB Clinical Trial Parser</a>
 
-1. Clone the repo
+1. Download the MeSH vocabulary, from root directory:
 ```sh
-git clone https://github.com/zfx0726@gmail.com/trialtracker.git
+./extract/src/github.com/facebookresearch/Clinical-Trial-Parser/script/mesh.sh
 ```
 2. Navigate into the trialtracker project directory and recreate the conda environment.
 
