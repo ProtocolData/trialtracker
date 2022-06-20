@@ -3,11 +3,43 @@ import numpy as np
 import psycopg2
 import getpass
 import pandas.io.sql as psql
+import os
 
 
-def get_default_query():
+def get_term_str():
+	my_path = os.path.abspath(os.path.dirname(__file__))
+	# path = os.path.join(my_path, "extracted_data/ct_fb_parser_data.csv")
+	term_path = os.path.join(my_path, "extracted_data/cancer_terms.csv")
+
+	print(f"Reading cancer terms from: {term_path}")
+	terms=pd.read_csv(term_path, dtype=str)
+
+	temp_str=""
+	for i, r in terms.iterrows(): 
+	    if i>0:
+	        temp_str+=" or "
+	    if r[1]!=r[1]: #returns True if r[1] is NaN
+	        temp_str+=f"c.downcase_name like '%{r[0]}%'"
+	    if r[1]==r[1]: #returns True if r[1] is not NaN
+	        temp_str+=f"(c.downcase_name like '%{r[0]}%'"
+	        temp_str+=f" and downcase_name not like '%{r[1]}%'"
+	        if r[2]==r[2]: #returns True if r[2] is not NaN
+	            temp_str+=f" and downcase_name not like '%{r[2]}%'"
+	        temp_str+=")"
+	return temp_str
+
+
+def get_default_query(term_str: str, fb_parser_format=True, nct_list=[]):
 	#has some rarer terminology https://www.clinicaltrials.gov/ct2/show/NCT03050268
-	query="""
+
+	nct_str="t.nct_id"
+	fb_nct_str="""t.nct_id AS \"#nct_id\""""
+
+	ncts="'"+"','". join(nct_list)+"'"
+
+	nct_list_str=f"and s.nct_id in ({ncts})"
+
+	query=f"""
 	with cancer_trials as (select  distinct s.nct_id,s.brief_title AS title,
 	s.start_date,
 	s.overall_status,
@@ -31,50 +63,18 @@ def get_default_query():
 	on s.nct_id=c.nct_id
 	where 
 	(
-	(c.downcase_name like '%cancer%'
-	or c.downcase_name like '%neoplasm%'
-	or c.downcase_name like '%tumor%'
-	or c.downcase_name like '%malignancy%'
-	or c.downcase_name like '%oncology%'
-	or c.downcase_name like '%neoplasia%'
-	or c.downcase_name like '%neoplastic%'
-	or c.downcase_name like '%carcinoma%'
-	or c.downcase_name like '%lymphoma%'
-	or c.downcase_name like '%metastatic%%'
-	or c.downcase_name like '%metastasis%'
-	or c.downcase_name like '%metastases%'
-	or c.downcase_name like '%leukemia%'
-	or c.downcase_name like '%leukaemia%'
-	or c.downcase_name like '%myeloma%'
-	or c.downcase_name like '%mesothelioma%'
-	or c.downcase_name like '%malignan%'
-	or c.downcase_name like '%hnscc%'
-	or c.downcase_name like '%melanoma%'
-	or c.downcase_name like '%polycythemia vera%'
-	or c.downcase_name like '%blastoma%'
-	or c.downcase_name like '%sarcoma%'
-	or c.downcase_name like '%nsclc%'
-	or (downcase_name like '%gist%' and downcase_name not like '%regist%' and downcase_name not like '%logist%')
-	or c.downcase_name like '%crpc%'
-	or c.downcase_name like '%myelodysplastic syndrome%'
-	or c.downcase_name like '%mds%'
-	or c.downcase_name like '%cytoma%'
-	or c.downcase_name like '%waldenstrom macroglobulinemia%'
-	or c.downcase_name like '%myelofibrosis%'
-	or c.downcase_name like '%hodgkin%'
-	or c.downcase_name like '%cml%'
-	or c.downcase_name like '%aml%'
-	or c.downcase_name like '%glioma%'
-	or c.downcase_name like '%ependymoma%'
-	or c.downcase_name like '%seminoma%'
-	or c.downcase_name like '%chordoma%'
-	or c.downcase_name like '%pseudomyxoma peritonei%'
-	or c.downcase_name like '%fibroxanthoma%'
-	) 
+
+	({term_str})
+	)
 
 	
-	))
+	{nct_list_str if len(nct_list)>0 else ""}
+
+
+	)
 	,
+
+
 
 	conditions as (
 	SELECT
@@ -98,7 +98,8 @@ def get_default_query():
 	)
 
 	select 
-	t.nct_id,
+	
+	{fb_nct_str if fb_parser_format else nct_str},
 	t.title,
 	CASE WHEN cv.has_us_facility THEN 'true' ELSE 'false' END AS has_us_facility,
 	c.conditions,
@@ -128,8 +129,8 @@ def get_default_query():
 	return query
 
 
-def get_cancer_trial_sites():
-	query="""
+def get_cancer_trial_sites(term_str: str):
+	query=f"""
 	with cancer_trials as (select  distinct s.nct_id,s.brief_title AS title,
 	s.start_date,
 	s.overall_status,
@@ -153,45 +154,7 @@ def get_cancer_trial_sites():
 	on s.nct_id=c.nct_id
 	where 
 	(
-	c.downcase_name like '%cancer%'
-	or c.downcase_name like '%neoplasm%'
-	or c.downcase_name like '%tumor%'
-	or c.downcase_name like '%malignancy%'
-	or c.downcase_name like '%oncology%'
-	or c.downcase_name like '%neoplasia%'
-	or c.downcase_name like '%neoplastic%'
-	or c.downcase_name like '%carcinoma%'
-	or c.downcase_name like '%lymphoma%'
-	or c.downcase_name like '%metastatic%%'
-	or c.downcase_name like '%metastasis%'
-	or c.downcase_name like '%metastases%'
-	or c.downcase_name like '%leukemia%'
-	or c.downcase_name like '%leukaemia%'
-	or c.downcase_name like '%myeloma%'
-	or c.downcase_name like '%mesothelioma%'
-	or c.downcase_name like '%malignan%'
-	or c.downcase_name like '%hnscc%'
-	or c.downcase_name like '%melanoma%'
-	or c.downcase_name like '%polycythemia vera%'
-	or c.downcase_name like '%blastoma%'
-	or c.downcase_name like '%sarcoma%'
-	or c.downcase_name like '%nsclc%'
-	or (downcase_name like '%gist%' and downcase_name not like '%regist%' and downcase_name not like '%logist%')
-	or c.downcase_name like '%crpc%'
-	or c.downcase_name like '%myelodysplastic syndrome%'
-	or c.downcase_name like '%mds%'
-	or c.downcase_name like '%cytoma%'
-	or c.downcase_name like '%waldenstrom macroglobulinemia%'
-	or c.downcase_name like '%myelofibrosis%'
-	or c.downcase_name like '%hodgkin%'
-	or c.downcase_name like '%cml%'
-	or c.downcase_name like '%aml%'
-	or c.downcase_name like '%glioma%'
-	or c.downcase_name like '%ependymoma%'
-	or c.downcase_name like '%seminoma%'
-	or c.downcase_name like '%chordoma%'
-	or c.downcase_name like '%pseudomyxoma peritonei%'
-	or c.downcase_name like '%fibroxanthoma%'
+	{term_str}
 	)
 	) 
 
@@ -225,131 +188,6 @@ def get_cancer_trial_sites():
 	return query
 
 
-def get_query_for_ncts(nct_list: list):
-	ncts="'"+"','". join(nct_list)+"'"
-
-	query=f"""
-	with cancer_trials as (select  distinct s.nct_id,s.brief_title AS title,
-	s.start_date,
-	s.overall_status,
-	s.phase,
-	s.enrollment,
-	s.enrollment_type,
-		
-	s.study_type,
-		s.number_of_arms,
-		s.number_of_groups,
-		s.why_stopped,
-		s.has_dmc,
-		s.is_fda_regulated_drug,
-		s.is_fda_regulated_device,
-		s.is_unapproved_device,
-		s.is_ppsd,
-		s.is_us_export
-
-	from ctgov.studies s
-	inner join ctgov.conditions c
-	on s.nct_id=c.nct_id
-	where 
-	(
-	(c.downcase_name like '%cancer%'
-	or c.downcase_name like '%neoplasm%'
-	or c.downcase_name like '%tumor%'
-	or c.downcase_name like '%malignancy%'
-	or c.downcase_name like '%oncology%'
-	or c.downcase_name like '%neoplasia%'
-	or c.downcase_name like '%neoplastic%'
-	or c.downcase_name like '%carcinoma%'
-	or c.downcase_name like '%lymphoma%'
-	or c.downcase_name like '%metastatic%%'
-	or c.downcase_name like '%metastasis%'
-	or c.downcase_name like '%metastases%'
-	or c.downcase_name like '%leukemia%'
-	or c.downcase_name like '%leukaemia%'
-	or c.downcase_name like '%myeloma%'
-	or c.downcase_name like '%mesothelioma%'
-	or c.downcase_name like '%malignan%'
-	or c.downcase_name like '%hnscc%'
-	or c.downcase_name like '%melanoma%'
-	or c.downcase_name like '%polycythemia vera%'
-	or c.downcase_name like '%blastoma%'
-	or c.downcase_name like '%sarcoma%'
-	or c.downcase_name like '%nsclc%'
-	or (downcase_name like '%gist%' and downcase_name not like '%regist%' and downcase_name not like '%logist%')
-	or c.downcase_name like '%crpc%'
-	or c.downcase_name like '%myelodysplastic syndrome%'
-	or c.downcase_name like '%mds%'
-	or c.downcase_name like '%cytoma%'
-	or c.downcase_name like '%waldenstrom macroglobulinemia%'
-	or c.downcase_name like '%myelofibrosis%'
-	or c.downcase_name like '%hodgkin%'
-	or c.downcase_name like '%cml%'
-	or c.downcase_name like '%aml%'
-	or c.downcase_name like '%glioma%'
-	or c.downcase_name like '%ependymoma%'
-	or c.downcase_name like '%seminoma%'
-	or c.downcase_name like '%chordoma%'
-	or c.downcase_name like '%pseudomyxoma peritonei%'
-	or c.downcase_name like '%fibroxanthoma%'
-	) 
-
-	)
-	and 
-	s.nct_id in ({ncts})
-
-	)
-	,
-
-	conditions as (
-	SELECT
-	c.nct_id,
-	STRING_AGG(c.name, '|' ORDER BY name) AS conditions
-	FROM cancer_trials t
-	inner join ctgov.conditions c
-	on t.nct_id=c.nct_id	
-	GROUP BY
-	c.nct_id	
-	),
-
-	sponsors as (
-	select 
-	s.nct_id,
-	STRING_AGG(s.name, '|' ORDER BY name) AS lead_sponsor
-		
-	from ctgov.sponsors s
-	where s.lead_or_collaborator='lead'	
-	group by s.nct_id	
-	)
-
-	select 
-	t.nct_id,
-	t.title,
-	CASE WHEN cv.has_us_facility THEN 'true' ELSE 'false' END AS has_us_facility,
-	c.conditions,
-	e.criteria AS eligibility_criteria, 
-	t.start_date, s.lead_sponsor, b.description as summary, t.overall_status, t.phase, t.enrollment, t.enrollment_type, t.study_type, t.number_of_arms, t.number_of_groups, t.why_stopped, t.has_dmc, t.is_fda_regulated_drug, t.is_fda_regulated_device, t.is_unapproved_device, t.is_ppsd, t.is_us_export
-
-	from cancer_trials t
-
-	inner join conditions c
-	on t.nct_id=c.nct_id
-
-	left join ctgov.calculated_values cv
-	on cv.nct_id=t.nct_id
-
-	left join ctgov.eligibilities e
-	on e.nct_id=t.nct_id
-
-	left join sponsors s
-	on s.nct_id=t.nct_id
-
-	left join ctgov.brief_summaries b
-	on b.nct_id=t.nct_id
-
-	order by t.nct_id asc;
-	"""
-
-	return query
 
 def query_aact(query):
 	connection=False
@@ -374,11 +212,24 @@ def query_aact(query):
 	  if (connection):
 	      connection.close()
 	      print("PostgreSQL connection is now closed")
+
+
+def download_data(query=get_default_query(get_term_str()), filename="ct_fb_parser_data.csv"):
+	file_path="extracted_data/"+filename
+	my_path = os.path.abspath(os.path.dirname(__file__))
+	path = os.path.join(my_path, file_path)
+
+
+	try:
+		df=query_aact(query)
+		df.to_csv(path)
+
+	except:
+	  print("Data download failed.  Please check credentials and query and try again.")
   
 
 if __name__ == "__main__":
 	print(f"Running {__file__} file directly...")
-	query=get_default_query()
-	df=query_aact(query)
-	print(df.head())
+
+	download_data()
 
