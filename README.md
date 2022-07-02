@@ -61,7 +61,7 @@ reference file here https://gitlab.unige.ch/Joakim.Tutt/Best-README-Template/-/t
 Cancer is one of the leading causes of death worldwide. The way we test and approve new treatments is through clinical trials.  But 97% of cancer trials 
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6409418/">fail</a>, 
     driven by inability to 
-    <a href="https://pubmed.ncbi.nlm.nih.gov/34823582/">recruit</a>
+    <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6092479/">recruit</a>
     enough patients.
 And yet many patients are routinely 
     <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3980490/">excluded</a> 
