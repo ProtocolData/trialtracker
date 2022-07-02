@@ -11,7 +11,7 @@ def get_term_str():
 	# path = os.path.join(my_path, "extracted_data/ct_fb_parser_data.csv")
 	term_path = os.path.join(my_path, "extracted_data/cancer_terms.csv")
 
-	print(f"Reading cancer terms from: {term_path}")
+	# print(f"Reading cancer terms from: {term_path}")
 	terms=pd.read_csv(term_path, dtype=str)
 
 	temp_str=""
