@@ -193,7 +193,7 @@ def query_aact(query):
 	connection=False
 	try:
 	  # Connect to an existing database
-	  connection = psycopg2.connect(user=getpass.getpass('What is your AACT username?'),
+	  connection = psycopg2.connect(user=getpass.getpass("What is your AACT username?  If you don't have one, please sign up for access here: https://aact.ctti-clinicaltrials.org/users/sign_up"),
 	                                password=getpass.getpass('What is your AACT password?'),
 	                                host="aact-db.ctti-clinicaltrials.org",
 	                                port="5432",
