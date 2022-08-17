@@ -124,7 +124,7 @@ conda activate trialtrackerenv_py36
 
 
 
-### Running eligibility criteria extraction with <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-03583-6">pyMeSHSim</a>
+### Running eligibility criteria extraction with <a href="https://github.com/chenzxlabhzau/pyMeSHSim">pyMeSHSim</a>
 
 1. Download and extract MetaMap as per:
 ```https://pymeshsim.readthedocs.io/en/latest/install.html

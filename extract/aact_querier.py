@@ -95,6 +95,43 @@ def get_default_query(term_str: str, fb_parser_format=True, nct_list=[]):
 	from ctgov.sponsors s
 	where s.lead_or_collaborator='lead'	
 	group by s.nct_id	
+	),
+	
+	responsible_parties as (
+	select 
+	r.nct_id,
+	STRING_AGG(r.name, '|') AS responsible_party_name,
+	STRING_AGG(r.responsible_party_type, '|') AS responsible_party_type,
+	STRING_AGG(r.title, '|') AS responsible_party_title,
+	STRING_AGG(r.organization, '|') AS responsible_party_organization,
+	STRING_AGG(r.affiliation, '|') AS responsible_party_affiliation
+		
+	from ctgov.responsible_parties r
+	group by r.nct_id
+	),
+	
+	principal_investigators as (
+	select 
+	o.nct_id,
+	STRING_AGG(o.name, '|') AS pi_name,
+	STRING_AGG(o.role, '|') AS pi_role,
+	STRING_AGG(o.affiliation, '|') AS pi_affiliation
+		
+	from ctgov.overall_officials o
+	where o.role='Principal Investigator'
+	group by o.nct_id
+	),
+
+	facilities as (
+	select 
+	f.nct_id,
+	count(distinct case when f.country='United States' then id else null end) as us_facility_count,
+	count(distinct id) as total_facility_count,
+	count(distinct case when f.country='United States' then id else null end)*1.0/
+	count(distinct id) as percent_us_facilities
+		
+	from ctgov.facilities f
+	group by f.nct_id
 	)
 
 	select 
@@ -104,7 +141,25 @@ def get_default_query(term_str: str, fb_parser_format=True, nct_list=[]):
 	CASE WHEN cv.has_us_facility THEN 'true' ELSE 'false' END AS has_us_facility,
 	c.conditions,
 	e.criteria AS eligibility_criteria, 
-	t.start_date, s.lead_sponsor, b.description as summary, t.overall_status, t.phase, t.enrollment, t.enrollment_type, t.study_type, t.number_of_arms, t.number_of_groups, t.why_stopped, t.has_dmc, t.is_fda_regulated_drug, t.is_fda_regulated_device, t.is_unapproved_device, t.is_ppsd, t.is_us_export
+	t.start_date, s.lead_sponsor, b.description as summary, t.overall_status, t.phase, t.enrollment, t.enrollment_type, t.study_type, t.number_of_arms, t.number_of_groups, t.why_stopped, t.has_dmc, t.is_fda_regulated_drug, t.is_fda_regulated_device, t.is_unapproved_device, t.is_ppsd, t.is_us_export,
+	r.responsible_party_name,
+	r.responsible_party_type,
+	r.responsible_party_title,
+	r.responsible_party_organization,
+	r.responsible_party_affiliation,
+	pi.pi_name,
+	pi.pi_role,
+	pi.pi_affiliation,
+	case 
+	when lower(pi.pi_affiliation) LIKE CONCAT('%', lower(s.lead_sponsor), '%') 
+	or lower(s.lead_sponsor) LIKE CONCAT('%', lower(pi.pi_affiliation), '%') 
+	or lower(s.lead_sponsor) LIKE CONCAT('%', lower(pi.pi_name), '%') 
+	or lower(pi.pi_name) LIKE CONCAT('%', lower(s.lead_sponsor), '%')
+	or (lower(t.title) like '%investigator%' and lower(t.title) like '%initiated%')
+	then TRUE else FALSE end as investigator_initiated_study,
+	f.us_facility_count,
+	f.total_facility_count,
+	f.percent_us_facilities
 
 	from cancer_trials t
 
@@ -119,6 +174,15 @@ def get_default_query(term_str: str, fb_parser_format=True, nct_list=[]):
 
 	left join sponsors s
 	on s.nct_id=t.nct_id
+
+	left join responsible_parties r
+	on r.nct_id=t.nct_id
+	
+	left join principal_investigators pi
+	on pi.nct_id=t.nct_id
+
+	left join facilities f
+	on f.nct_id=t.nct_id
 
 	left join ctgov.brief_summaries b
 	on b.nct_id=t.nct_id
