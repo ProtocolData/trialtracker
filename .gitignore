@@ -1,0 +1,33 @@
+# https://github.com/sr320/course-fish546-2015/issues/43
+# find ./* -size +100M | cat >> .gitignore
+
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/vars
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/varsan
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/varsanu
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/cuisourceinfo
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/cuisrc
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.base/varsu
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/cuist
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/all_words_WIDE
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words_of_two_WIDE
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words_WIDE
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_wordsb_WIDE
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_words
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/conceptcui
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/cui_srcs_sts
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/suistrings
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/conceptst
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/sui_cui
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/all_words
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/first_wordsb
+./src/metamap/public_mm/DB/DB.USAbase.2020AA.strict/cuiconcept
+./src/metamap/public_mm/lexicon/data/2020/lex_form
+./src/metamap/public_mm/lexicon/data/2020/lex_rec
+./src/metamap/public_mm/lexicon/data/2020/im_vars
+./src/metamap/public_mm/WSD_Server/wstvsc01-12-dc.txt
+./src/trialtracker/extract/extracted_data/cancer_trials_sites.csv
+./src/trialtracker/extract/extracted_data/onc_trials.csv
+./src/trialtracker/extract/extracted_data/ct_fb_parser_data.csv
+./src/trialtracker/extract/extracted_data/ct_fb_parser_data_more.csv
+./src/trialtracker/extract/extracted_data/cfg_parsed_clinical_trials.tsv
+./src/trialtracker/extract/extracted_data/ie_parsed_clinical_trials.tsv
