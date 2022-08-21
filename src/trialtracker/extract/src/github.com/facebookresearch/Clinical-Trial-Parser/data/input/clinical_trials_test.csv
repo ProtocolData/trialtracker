@@ -1,0 +1,201 @@
+#nct_id,title,has_us_facility,conditions,eligibility_criteria,start_date,lead_sponsor,summary,overall_status,phase,enrollment,enrollment_type,study_type,number_of_arms,number_of_groups,why_stopped,has_dmc,is_fda_regulated_drug,is_fda_regulated_device,is_unapproved_device,is_ppsd,is_us_export
+NCT00030264,Combination Chemotherapy in Treating Patients With Neurofibromatosis and Progressive Plexiform Neurofibromas,True,Neurofibromatosis Type 1|Precancerous Condition,"Inclusion Criteria:
+
+Progressive, debilitating, severely disfiguring or life-threatening plexiform neurofibroma (PN) which is not surgically resectable and for which there is no other standard medical management. Histologic confirmation of tumor is not required in the presence of consistent clinical and radiographic findings. However, if any clinical observation or scan suggests possible malignant transformation, the tumor must be biopsied prior to therapy. In addition to PN, all study subjects must have at least one other diagnostic criteria for Neurofibromatosis type 1 (NF1) listed below:
+
+6 or more café-au-lait spots > 0.5 cm in prepubertal subjects or > 1.5 cm in postpubertal subjects
+freckling in the axilla or groin
+optic glioma
+2 or more lisch nodules
+a distinctive bony lesion (dysplasia of the sphenoid bone or dysplasia or thinning of long bone cortex)
+a first degree relative with NF1
+
+Adequate bone marrow, renal, hepatic function:
+
+Absolute Neutrophil Count (ANC)> 1000 and platelet count >100,000 prior to initiation of therapy
+must have normal renal function: Blood Urea Nitrogen (BUN)/Creatinine <1.5x normal for age), alkaline phosphatase (ALP), albumin, total protein and bilirubin
+must have normal liver function: Bilirubin, alanine transaminase (ALT), aspartate aminotransferase (AST) < 1.5x normal for age
+Patients must have measurable PN by direct physical examination (documented by clinical measurement of tumor and serial photography) or by imaging studies. Most patients will have tumors that can be measured by magnetic resonance imaging (MRI), however, some patients may have cosmetically disfiguring PN which would be best measured clinically and with serial photography throughout treatment and follow-up. A measurable lesion is one whose size can be quantified in at least 2 dimensions. There must be evidence of recurrent or progressive disease as documented by an increase in size or the presence of new lesions on MRI. Progression is defined as the appearance of new tumors or a measurable increase in the sum of the product of the two longest perpendicular diameters of the index lesion(s) over a time period < 12 months prior to evaluation for this study. For purposes of this study, index PN lesions will be those PNs evaluated as the most life-threatening, debilitating, cosmetically disfiguring, and/or most easily measured.
+Prior therapy: Patients with NF1 are eligible at the time of recurrence or progression of inoperable PN. A surgical consultation should be obtained prior to enrollment on the study to evaluate if tumor resection is a feasible option. Patients will only be eligible if complete tumor resection is not feasible or if a patient with a surgical option refuses surgery. Since there is no standard effective chemotherapy for patients with NF1 and progressive PN, patients may be treated on this trial without having received prior therapy. Patients must have recovered from the toxic effects of all prior therapy before entering this study. The Cancer Therapy Evaluation Program Common Toxicity Criteria (CTC) Version 2.0 will be used for toxicity assessment. Recovery is defined as a toxicity grade < 2, unless otherwise specified in the Inclusion and Exclusion Criteria. Patients must have had their last dose of radiation therapy at least 6 weeks prior to study entry, and their last dose of chemotherapy at least four weeks prior to study entry. Patients who received granulocyte-colony stimulating factor (G-CSF) after the prior cycle of chemotherapy must be off G-CSF for at least one week prior to entering this study.
+Performance status: Patients should have a life expectancy of at least 12 months and a Lansky or Karnofsky performance score of > 60. Patients who are wheelchair bound because of paralysis should be considered ""ambulatory"" when they are mobile and active in their wheelchairs rather than actually ambulatory.
+A Pregnancy test must be negative for females of childbearing age.
+Informed consent: All patients or their legal guardians (if the patient is less than 18 years old) must sign an approved document of informed consent indicating their understanding of the investigational nature and the risks of this study before beginning therapy. When appropriate pediatric patients will be included in all discussion in order to obtain verbal assent.
+
+Exclusion Criteria:
+
+Pregnant females are excluded
+Patient has had treatment with an investigational agent within the past 30 days.
+Ongoing radiation therapy, chemotherapy, hormonal therapy directed at the tumor or immunotherapy.
+Inability to return for follow-up visits or obtain follow-up studies required to assess toxicity and response to therapy.",2001-02-28,Children's Hospital of Philadelphia,"RATIONALE: Drugs used in chemotherapy use different ways to stop tumor cells from dividing so they stop growing or die. Combining methotrexate with vinblastine may be effective treatment for neurofibromatosis type 1 associated with progressive plexiform neurofibromas.
+
+PURPOSE: Phase II trial to study the effectiveness of combination chemotherapy in treating patients who have neurofibromatosis type 1 associated with progressive plexiform neurofibromas.",Completed,Phase 2,23.0,Actual,Interventional,1.0,,,True,,,,,
+NCT00033657,Radiation Therapy and Chemotherapy Before and After Surgery in Treating Patients With Esophageal Cancer,True,Esophageal Cancer|Gastric Cancer,"Inclusion Criteria:
+
+Newly diagnosed adenocarcinoma of the esophagus (20 cm below incisors) or gastroesophageal junction
+
+Stage T2-3, N0, M0 OR
+Stage T1-3, N0-1, M0 or M1A (celiac nodal metastasis)
+Tumor must be considered surgically resectable (T1-3, but not T4)
+Age>=18 years
+ECOG Performance status 0-1
+Adequate hematopoietic, hepatic, renal functions defined by the following within 4 weeks prior to randomization:
+Granulocyte count at least 1,000/mm^3
+Platelet count at least 100,000/mm^3
+Bilirubin no greater than 1.5 mg/dL
+Creatinine clearance at least 60 mL/min
+Prior curatively treated malignancy allowed if currently disease-free and survival prognosis is more than 5 years
+Fertile patients must use effective contraception
+Endoscopy with biopsy and dilation allowed
+
+Exclusion Criteria:
+
+Tumor extends more than 2 cm into the cardia
+Pregnant or nursing
+Other concurrent illness that would preclude study therapy or surgical resection
+Concurrent filgrastim (G-CSF) during study radiotherapy
+Prior chemotherapy
+Prior radiotherapy
+Prior surgery",2002-05-31,Eastern Cooperative Oncology Group,"RATIONALE: Radiation therapy uses high-energy x-rays to damage tumor cells. Drugs used in chemotherapy use different ways to stop tumor cells from dividing so they stop growing or die. Combining radiation therapy with chemotherapy before and after surgery may kill more tumor cells.
+
+PURPOSE: Randomized phase II trial to compare the effectiveness of combining radiation therapy with two different chemotherapy regimens before and after surgery in treating patients who have esophageal cancer.",Completed,Phase 2,97.0,Actual,Interventional,2.0,,,False,,,,,
+NCT00038428,Phase 2 Study of TLK286 in Platinum Resistant Advanced Epithelial Ovarian Cancer,True,Ovarian Neoplasms,"Inclusion Criteria
+
+Histologic diagnosis of ovarian cancer
+Recurrent or persistent disease following primary therapy
+Measurable disease
+Prior treatment with at least one but no more than three prior chemotherapy regimens
+Resistant or refractory to platinum-based chemotherapy
+At least 18 years of age
+Good performance status (ECOG 0 to 1)
+Adequate liver, renal and bone marrow function
+
+Exclusion criteria
+
+Pregnant or currently breast feeding
+Treatment with chemotherapy or immunotherapy within four weeks
+Prior radiation to the whole pelvis",2001-06-30,Telik,The purpose of this study is to determine the effectiveness and safety of TLK286 given intravenously once every week in the treatment of patients with advanced ovarian cancer that is resistant to platinum-based chemotherapy.,Completed,Phase 2,40.0,,Interventional,,,,,,,,,
+NCT00041886,Radiofrequency Ablation of Painful Soft Tissue Neoplasms,True,Soft Tissue Neoplasms,"INCLUSION CRITERIA
+
+All patients must have pain poorly controlled by conventional methods, defined as ongoing pain despite maximum pharmacologic interventions, or severe side effects like mental status alteration from medication, as determined by the patient along with the palliative care/ pain consult service and/or the patient's physician.
+
+Persistent or recalcitrant pain will be localized to a specific neoplastic lesion determined by consensus review by the P.I. with the pain/palliative care service, the patient's physician, and the diagnostic radiologist reviewing the case. Only patients with a limited number of lesions causing pain will be enrolled, and only if there is a target lesion which can be the focus of ablation.
+
+All patients must have had a diagnostic CT scan which conclusively reveal a soft tissue metastasis, which is the source of pain as determined by the Palliative care oncologist. One independent radiologist who is not a co-investigator in this study must confirm this. Tumor does not have to be completely destroyable by RFA, as patients may benefit from simple debulking, denervation, or decrease in intratumoral pressure.
+
+Age greater than or equal to 18 years.
+
+Biopsy of lesion in question for histologic or cytologic confirmation of cancer will be obtained when safe and clinically indicated, or if there is reasonable doubt as to diagnosis. Reasonable doubt will be determined by the PI, the surgeon, and the palliative care oncologist by consensus.
+
+Performance Status ECOG 0-2.
+
+Life expectancy of 3 months or greater.
+
+Platelet count greater than 50,000/mL, absolute granulocyte count (AGC) greater than 1,000/mL, serum creatine less than 1.5 mg/dl (or if greater than 1.5, measured creatine clearance greater than 50mL/min). Any patient with elevated PTT or PT that is uncorrectable will be evaluated by NIH hematology for safety of procedure. This will allow patients with ""falsely-elevated"" values to undergo the same evaluation that they would have for surgery or other invasive procedure. Dr. Horne is the hematologist and coinvestigator on this protocol.
+
+No serious concurrent medical illness.
+
+Bi-dimensionally measurable disease by radiographic means or physical examination.
+
+The ability to understand and willingness to sign a written informed consent form, and to comply with the protocol. If in question will be reviewed by the ethics committee.
+
+Consult with an NCI surgeon and Palliative care oncologist who will determine if the patient's pain medications and other options (surgical) have been optimized prior to entry in this protocol. Surgical options must be either not possible, or rejected by the patient. Surgery will be either offered or ruled out as an alternative by the NCI surgeon prior to treatment.
+
+Chemotherapy, radiation therapy, and classification of drug therapy must be stable without changes for 2 weeks prior to tumor ablation.
+
+EXCLUSION CRITERIA
+
+Patients with a coagulopathy which cannot be corrected, or a bleeding diathesis, will be excluded from this study. Patients taking anti-inflammatory agents or aspirin, heparin, heparinoids, or coumadin will be excluded until the prothrombin time and partial thromboplastin time have normalized.
+
+Patients with an altered mental status that precludes understanding or consenting for a procedure will be excluded from this study.
+
+Pregnant or nursing women and women of childbearing potential unless using effective contraception as determined by the patient's physician.
+
+Patients who are poor medical risk because of other non malignant systemic disease or active, uncontrolled infection.
+
+Patients should not change the class of pain medication for two weeks prior to treatment and are ineligible if class is changed within two weeks prior. If the class of pain medication is switched within two weeks after treatment, the patient becomes inevaluable.",2002-07-31,National Institutes of Health Clinical Center (CC),"Radiofrequency ablation is used to treat patients with many different conditions. It is used to treat heart arrhythmia and benign bone tumors, and to control bleeding during surgery. It has been approved by the Food and Drug Administration for soft tissue ablation (removal). The technique involves inserting a probe, guided by computed tomography or ultrasound, and sending radio waves through the probe. The radio waves generate heat, which both destroys adjacent tissue and cauterizes blood vessels.
+
+This study will enroll 15 adults (age 18 or older) with soft tissue metastases who suffer pain that is not well controlled by other means, such as drugs. The goal is to reduce their pain or their use of analgesics by partially destroying some of their tumors.
+
+Patients will be ineligible for the study if they change the class of pain medication they use within 2 weeks before or 2 weeks after the study treatment. Patients will fill out short questionnaires about pain and daily activities (Brief Pain Inventory) before treatment and 1 day, 1 week, 1 month, 3 months, and 12 months after treatment to ascertain whether their pain is better controlled with less pain medication.
+
+For the treatment, most patients will receive local anesthetic in the area where the probe is inserted. Some patients may require general anesthesia. The probe will remain in place typically for 10 to 30 minutes. For larger tumors, it may be inserted at different positions.",Completed,,30.0,,Observational,,,,,,,,,
+NCT00042510,Safety and Efficacy of G17DT Immunogen in the Treatment of Gastric and Gastroesophageal Cancer,False,Esophageal Neoplasms|Stomach Neoplasms,"Inclusion criteria:
+
+Clinical diagnosis with gastric or gastroesophageal cancer
+Karnofsky performance status score of at least 70
+Life expectancy of at least 3 months
+
+Exclusion criteria:
+
+Prior treatment with chemotherapy or anticancer immunotherapy
+Bone marrow transplant within past year
+Chronic use of corticosteroids, except for inhaled corticosteroids used for asthma or chronic obstructive pulmonary disease
+Central nervous system metastases
+Immunodeficiency
+Hypercalcemia",2000-08-31,Cancer Advances Inc.,"This study will test whether the G17DT Immunogen, when administered in combination with chemotherapy, is an effective and safe treatment for gastric cancer.",Completed,Phase 2,103.0,Actual,Interventional,1.0,,,False,,,,,
+NCT00083304,"Whole Brain Radiation Therapy With Oxygen, With or Without RSR13, in Women With Brain Metastases From Breast Cancer",True,Breast Cancer|Metastases,"Inclusion Criteria:
+
+Adult women with brain metastases from breast cancer
+Minimum KPS of 70
+
+Exclusion Criteria:
+
+Previous treatment for brain metastases, including brain surgery and any form of radiation to the brain",2004-02-29,"Spectrum Pharmaceuticals, Inc","RSR13 (efaproxiral) is a radiation sensitizer that has shown positive results in a Phase 3, randomized clinical trial of patients with brain metastases. Of 111 eligible breast cancer patients with brain metastases in that trial, 59 patients who received RSR13 prior to radiation therapy had a median survival time that was twice as long as the 52 patients who did not receive RSR13 prior to radiation therapy.
+
+RSR13 (efaproxiral) is an experimental drug that increases the amount of oxygen released from blood into the tissues. It is well known that certain types of cancer tumors, including those in brain metastases, lack oxygen. Lack of oxygen in a tumor can reduce the effect of radiation therapy (RT). RSR13 may increase the oxygen level in brain tumors so that radiation therapy works better.
+
+This study will enroll up to 360 women with brain metastases from breast cancer, and will evaluate if whole brain radiation therapy given with RSR13 will have a better treatment effect than whole brain radiation therapy alone. RSR13 will be infused intravenously (IV) through a central catheter placed in a central vein. Women randomized (assigned) to receive RSR13, therefore, will need to have a central catheter placed for treatment unless one is already in place.",Completed,Phase 3,368.0,Actual,Interventional,2.0,,,True,,,,,
+NCT00098579,Doxorubicin Hydrochloride and Alvocidib in Treating Patients With Metastatic or Recurrent Sarcoma That Cannot Be Removed By Surgery,True,Gastrointestinal Stromal Tumor|Recurrent Adult Soft Tissue Sarcoma|Stage IV Adult Soft Tissue Sarcoma,"Inclusion Criteria:
+
+Histologically or cytologically confirmed soft-tissue sarcoma*
+
+Unresectable disease
+Locally recurrent or metastatic disease
+Disease amenable to biopsy (patients treated at the maximum tolerated dose only)
+No known prior or concurrent brain metastases
+Performance status - Karnofsky 60-100%
+Performance status - ECOG 0-2
+Absolute neutrophil count ≥ 1,500/mm^3
+Platelet count ≥ 100,000/mm^3
+Bilirubin ≤ 1.5 mg/dL
+AST and ALT ≤ 2.5 times upper limit of normal
+Creatinine ≤ 1.5 mg/dL
+Creatinine clearance ≥ 60 mL/min
+Ejection fraction ≥ 50% by MUGA or echocardiogram
+No uncontrolled hypertension
+No myocardial infarction
+No New York Heart Association class II-IV congestive heart failure
+No unstable angina
+No serious cardiac arrhythmia requiring medication
+No peripheral vascular disease ≥ grade 2 within the past year
+No other clinically significant cardiac disease
+No prior deep vein thrombosis
+No other prior vascular thrombus
+No prior pulmonary embolism
+Not pregnant or nursing
+Negative pregnancy test
+Fertile patients must use effective contraception
+No symptomatic peripheral neuropathy ≥ grade 2
+
+No other malignancy within the past 5 years except adequately treated basal cell skin cancer or carcinoma in situ of the cervix
+
+Carcinoma in situ not considered a second malignancy
+No history of allergic reaction attributed to compounds of similar chemical or biologic composition to study drugs
+No psychiatric illness or social situation that would preclude study compliance
+No ongoing or active infection
+No other uncontrolled illness
+See Chemotherapy
+At least 3 weeks since prior immunotherapy and recovered
+At least 3 weeks since prior chemotherapy (6 weeks for carmustine or mitomycin) and recovered
+
+No more than 2 prior cytotoxic chemotherapy regimens
+
+Peroxisome proliferator-activated receptor (PPAR)-gamma agonists, thalidomide, or targeted therapy (i.e., tyrosine kinase inhibitors including imatinib mesylate, sorafenib, or sunitinib malate) do not count as a prior chemotherapy regimen
+No prior anthracyclines
+At least 3 weeks since prior radiotherapy and recovered
+No prior extensive radiotherapy to bone marrow-producing sites (e.g., radiotherapy to both the pelvis and spine)
+At least a 1 week washout period since prior tyrosine kinase inhibitors or other targeted therapy
+Concurrent low-dose warfarin (1 mg per day) to prevent thrombus of a central line allowed
+No concurrent combination antiretroviral therapy for HIV-positive patients
+No other concurrent investigational agents
+No other concurrent anticancer therapy",2004-10-31,National Cancer Institute (NCI),"This phase I trial is studying the side effects and best dose of alvocidib when given with doxorubicin hydrochloride in treating patients with metastatic or recurrent sarcoma that cannot be removed by surgery. Drugs used in chemotherapy, such as doxorubicin hydrochloride and alvocidib, work in different ways to stop the growth of tumor cells, either by killing the cells or by stopping them from dividing. Alvocidib may also help doxorubicin hydrochloride work better by making tumor cells more sensitive to the drug. Giving more than one drug may kill more tumor cells",Completed,Phase 1,36.0,Actual,Interventional,1.0,,,,,,,,
