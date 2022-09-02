@@ -1,3 +1,0 @@
-[submodule "src/trialtracker/extract/src/github.com/facebookresearch/Clinical-Trial-Parser"]
-	path = src/trialtracker/extract/src/github.com/facebookresearch/Clinical-Trial-Parser
-	url = https://github.com/zfx0726/Clinical-Trial-Parser.git
