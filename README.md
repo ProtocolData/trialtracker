@@ -129,7 +129,7 @@ Get up and running with conda.  Given the many dependencies of this project, we 
 
 1. Clone the repo
 ```sh
-git clone https://github.com/zfx0726@gmail.com/trialtracker.git
+git clone https://github.com/zfx0726/trialtracker.git
 ```
 2. Navigate into the trialtracker project directory and recreate the conda environment.
 ```sh
