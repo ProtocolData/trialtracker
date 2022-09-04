@@ -39,7 +39,9 @@ reference file here https://gitlab.unige.ch/Joakim.Tutt/Best-README-Template/-/t
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 
-* [About the Project](#about-the-project)
+* [What is it?](#what-is-it)
+* [Main Features](#main-features)
+* [Impact](#impact)
   * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
@@ -53,8 +55,34 @@ reference file here https://gitlab.unige.ch/Joakim.Tutt/Best-README-Template/-/t
 
 
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+<!-- What is it -->
+## What is it?
+
+trialtracker is a Python package that provides methods to easily extract, transform, and download clinical trial data.  It aims to create standardized data infrastructure for clinical trial digitalization, focusing on structured representation of clinical trial protocols.
+
+
+
+<!-- Main Features -->
+## Main Features
+
+Here are some of the things trialtracker allows you to do:
+
+<br /> - Download pre-curated clinical trial and clinical trial eligibility criteria datasets
+<br /> - Easily query data from clinicaltrials.gov
+<br /> - Apply state-of-the-art natural language processing methods to extract useful information from raw clinicaltrials.gov data
+<br /> - Data visualizations and analysis of clinical trial data
+<br />
+
+The current version of the package is primarily focused on cancer trials, which are an important area for clinical development.  Improved data infrastructure is especially helpful in this area given the complexity of the disease and treatments.
+
+
+
+
+
+
+
+<!-- Impact -->
+## Impact
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -69,14 +97,16 @@ And yet many patients are routinely
     <br />
     <br />
 
-The key to solving these problems is in changing how we design trials, recruit patients, and report on results. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design, patient recruitment, or reporting decisions in Oncology. A few goals of this project:    
+The key to solving these problems is in changing how we design trials, recruit patients, and report on results. Regulatory requirements for clinical trial registration became required in 2017, making semi-structured trial protocol data available on clinicaltrials.gov. Today, this is not being systematically used in trial design, patient recruitment, or reporting decisions in Oncology. This project aims to unlock the value of clinical trial data to help accelerate cancer research and improve the lives of cancer patients.
+
+<!-- A few goals of this project:    
 <br /> - Explore clinical trial data from clinicaltrials.gov
     <br /> - Develop a method to extract structured core eligibility criteria for cancer trials (extending work  
     <a href="https://pubmed.ncbi.nlm.nih.gov/30753493/">here</a>  and 
     <a href="https://arxiv.org/abs/2006.07296">here</a>)
     <br /> - Combine extracted criteria with real-world oncology data to evaluate the impact of eligibility criteria on trial racial diversity (extending work 
     <a href="https://www.nature.com/articles/s41586-021-03430-5">here</a> by incorporating race data)
-    <br /> - Generate a diversity rating for each clinical trial
+    <br /> - Generate a diversity rating for each clinical trial -->
 
 
 ### Built With

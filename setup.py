@@ -3,9 +3,12 @@ from setuptools import setup
 
 # https://packaging.python.org/en/latest/guides/making-a-pypi-friendly-readme/
 from pathlib import Path
-this_directory = Path(__file__).parent
-long_description = (this_directory / "README.md").read_text()
+# this_directory = Path(__file__).parent
+# long_description = (this_directory / "README.md").read_text()
 
+
+# https://stackoverflow.com/questions/41637275/how-can-a-readme-md-file-be-included-in-a-pypi-module-package-using-setup-py
+import pypandoc
 
 setup(
   name = 'trialtracker',         # How you named your package folder (MyLib)
@@ -14,8 +17,9 @@ setup(
   version = '0.1',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Methods to extract and transform clinical trial data',   # Give a short description about your library
-  long_description=long_description,
-  long_description_content_type='text/markdown',
+  long_description=pypandoc.convert("README.md", "rst"),
+
+  # long_description_content_type='text/markdown',
 
   author = 'Forrest',                   # Type in your name
   author_email = 'zfx0726@gmail.com',      # Type in your E-Mail
