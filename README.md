@@ -42,7 +42,7 @@ reference file here https://gitlab.unige.ch/Joakim.Tutt/Best-README-Template/-/t
 * [What is it?](#what-is-it)
 * [Main Features](#main-features)
 * [Impact](#impact)
-  * [Built With](#built-with)
+* [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -64,7 +64,6 @@ trialtracker is a Python package that provides methods to easily extract, transf
 
 <!-- Main Features -->
 ## Main Features
-
 Here are some of the things trialtracker allows you to do:
 
 <br /> - Download pre-curated clinical trial and clinical trial eligibility criteria datasets
