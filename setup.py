@@ -13,7 +13,7 @@ setup(
   name = 'trialtracker',         # How you named your package folder (MyLib)
   packages = ['trialtracker'],   # Chose the same as "name"
   package_dir={"":"src"},
-  version = '0.1.5',      # Start with a small number and increase it with every change you make
+  version = '0.1.6',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Methods to extract and transform clinical trial data',   # Give a short description about your library
   
@@ -24,7 +24,7 @@ setup(
   author = 'Forrest',                   # Type in your name
   author_email = 'zfx0726@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/zfx0726/trialtracker',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/zfx0726/trialtracker/archive/refs/tags/v.0.1.5.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/zfx0726/trialtracker/archive/refs/tags/v0.1.6.tar.gz',    # I explain this later on
   keywords = ['clinical', 'trial', 'eligibility','criteria','cancer','oncology','nlp'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'anyio>=2.2.0',
@@ -164,7 +164,6 @@ setup(
 'openjpeg>=2.4.0',
 'openssl>=1.1.1o',
 'packaging>=21.3',
-'pandoc>=2.12',
 'pandocfilters>=1.5.0',
 'pango>=1.42.4',
 'parso>=0.8.3',
