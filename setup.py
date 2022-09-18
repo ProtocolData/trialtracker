@@ -1,4 +1,4 @@
-# https://medium.com/@joel.barmettler/how-to-upload-your-python-package-to-pypi-65edc5fe9c56
+# https://betterscientificsoftware.github.io/python-for-hpc/tutorials/python-pypi-packaging/#creating-a-wheel-distribution
 from setuptools import setup
 
 # https://packaging.python.org/en/latest/guides/making-a-pypi-friendly-readme/
@@ -8,16 +8,14 @@ long_description = (this_directory / "pypi_readme.md").read_text()
 
 
 # https://stackoverflow.com/questions/41637275/how-can-a-readme-md-file-be-included-in-a-pypi-module-package-using-setup-py
-# import pypandoc
 
 setup(
   name = 'trialtracker',         # How you named your package folder (MyLib)
   packages = ['trialtracker'],   # Chose the same as "name"
   package_dir={"":"src"},
-  version = '0.1.4',      # Start with a small number and increase it with every change you make
+  version = '0.1.5',      # Start with a small number and increase it with every change you make
   license='MIT',        # Chose a license from here: https://help.github.com/articles/licensing-a-repository
   description = 'Methods to extract and transform clinical trial data',   # Give a short description about your library
-  # long_description=pypandoc.convert("README.md", "rst"),
   
   # long_description="README.rst",
   long_description=long_description,
@@ -26,7 +24,7 @@ setup(
   author = 'Forrest',                   # Type in your name
   author_email = 'zfx0726@gmail.com',      # Type in your E-Mail
   url = 'https://github.com/zfx0726/trialtracker',   # Provide either the link to your github or to your website
-  download_url = 'https://github.com/zfx0726/trialtracker/archive/refs/tags/v_01.4.tar.gz',    # I explain this later on
+  download_url = 'https://github.com/zfx0726/trialtracker/archive/refs/tags/v.0.1.5.tar.gz',    # I explain this later on
   keywords = ['clinical', 'trial', 'eligibility','criteria','cancer','oncology','nlp'],   # Keywords that define your package best
   install_requires=[            # I get to this in a second
           'anyio>=2.2.0',
