@@ -37,7 +37,7 @@ def get_default_query(term_str: str, fb_parser_format=True, nct_list=[]):
 
 	ncts="'"+"','". join(nct_list)+"'"
 
-	nct_list_str=f"and s.nct_id in ({ncts})"
+	nct_list_str=f"or s.nct_id in ({ncts})"
 
 	query=f"""
 	with cancer_trials as (select  distinct s.nct_id,s.brief_title AS title,
