@@ -2,8 +2,8 @@ name: trialtrackerenv_py36
 channels:
   - pytorch
   - plotly
-  - anaconda
   - conda-forge
+  - anaconda
   - defaults
 dependencies:
   - anyio=2.2.0=py36hecd8cb5_1
@@ -22,7 +22,7 @@ dependencies:
   - brotlipy=0.7.0=py36h9ed2024_1003
   - bs4=4.11.1=hd8ed1ab_0
   - bzip2=1.0.8=h1de35cc_0
-  - ca-certificates=2022.4.26=hecd8cb5_0
+  - ca-certificates=2022.07.19=hecd8cb5_0
   - cachetools=2.0.0=py36_0
   - cairo=1.14.12=hc4e6be7_4
   - certifi=2021.5.30=py36hecd8cb5_0
@@ -30,6 +30,7 @@ dependencies:
   - charset-normalizer=2.0.4=pyhd3eb1b0_0
   - click=8.0.3=pyhd3eb1b0_0
   - cloudpickle=2.0.0=pyhd3eb1b0_0
+  - cmarkgfm=0.4.2=py36h9ed2024_0
   - colorama=0.4.5=pyhd8ed1ab_0
   - contextvars=2.4=py_0
   - cryptography=35.0.0=py36h2fd3fbb_0
@@ -41,6 +42,7 @@ dependencies:
   - decorator=5.1.1=pyhd3eb1b0_0
   - defusedxml=0.7.1=pyhd3eb1b0_0
   - distributed=2021.3.0=py36hecd8cb5_0
+  - docutils=0.17.1=py36hecd8cb5_1
   - entrypoints=0.3=py36_0
   - expat=2.4.4=he9d5cce_0
   - ffmpeg=4.3.2=h4dad6da_0
@@ -65,6 +67,8 @@ dependencies:
   - idna=3.3=pyhd3eb1b0_0
   - imageio=2.6.1=py36_0
   - immutables=0.16=py36h9ed2024_0
+  - importlib-metadata=4.8.1=py36hecd8cb5_0
+  - importlib_metadata=4.8.1=hd3eb1b0_0
   - intel-openmp=2020.2=258
   - ipykernel=5.3.4=py36h5ca1d4c_0
   - ipython=7.16.1=py36h5ca1d4c_0
@@ -83,6 +87,7 @@ dependencies:
   - jupyterlab_pygments=0.1.2=py_0
   - jupyterlab_server=2.10.3=pyhd3eb1b0_1
   - kaleido-core=0.2.1=h0d85af4_0
+  - keyring=23.1.0=py36hecd8cb5_0
   - kiwisolver=1.3.1=py36h23ab428_0
   - krb5=1.19.2=hcd88c3b_0
   - lame=3.100=h1de35cc_0
@@ -141,8 +146,9 @@ dependencies:
   - openh264=2.1.1=h8346a28_0
   - openjdk=8.0.332=hac89ed1_0
   - openjpeg=2.4.0=h66ea3da_0
-  - openssl=1.1.1o=hca72f7f_0
+  - openssl=1.1.1q=hca72f7f_0
   - packaging=21.3=pyhd3eb1b0_0
+  - pandas=1.1.5=py36hb2f4e1b_0
   - pandoc=2.12=hecd8cb5_0
   - pandocfilters=1.5.0=pyhd3eb1b0_0
   - pango=1.42.4=h060686c_0
@@ -155,6 +161,7 @@ dependencies:
   - pillow=8.3.1=py36ha4cf6ea_0
   - pip=21.2.2=py36hecd8cb5_0
   - pixman=0.40.0=h9ed2024_1
+  - pkginfo=1.8.2=pyhd3eb1b0_0
   - plotly=5.8.0=py_0
   - prometheus_client=0.13.1=pyhd3eb1b0_0
   - prompt-toolkit=3.0.20=pyhd3eb1b0_0
@@ -170,6 +177,7 @@ dependencies:
   - pydotplus=2.0.2=py_1
   - pygments=2.11.2=pyhd3eb1b0_0
   - pyopenssl=22.0.0=pyhd3eb1b0_0
+  - pypandoc=1.6.3=pyhd3eb1b0_1
   - pyparsing=3.0.4=pyhd3eb1b0_0
   - pyrsistent=0.17.3=py36haf1e3a3_0
   - pysocks=1.7.1=py36hecd8cb5_0
@@ -184,7 +192,10 @@ dependencies:
   - pyyaml=5.4.1=py36h9ed2024_1
   - pyzmq=22.2.1=py36h23ab428_1
   - readline=8.1.2=hca72f7f_1
+  - readme_renderer=24.0=py36hecd8cb5_0
   - requests=2.27.1=pyhd3eb1b0_0
+  - requests-toolbelt=0.9.1=pyhd3eb1b0_0
+  - rfc3986=1.4.0=pyhd3eb1b0_0
   - rsa=3.4.2=py_1
   - scikit-learn=0.24.2=py36hb2f4e1b_0
   - scipy=1.5.3=py36h4f136de_1
@@ -210,6 +221,7 @@ dependencies:
   - tornado=6.1=py36h9ed2024_0
   - tqdm=4.64.0=pyhd8ed1ab_0
   - traitlets=4.3.3=py36hecd8cb5_0
+  - twine=3.7.1=pyhd3eb1b0_0
   - typing-extensions=4.1.1=hd3eb1b0_0
   - typing_extensions=4.1.1=pyh06a4308_0
   - uritemplate=3.0.1=py_0
@@ -223,8 +235,6 @@ dependencies:
   - yaml=0.2.5=haf1e3a3_0
   - zeromq=4.3.4=h23ab428_0
   - zict=2.0.0=pyhd3eb1b0_0
+  - zipp=3.6.0=pyhd3eb1b0_0
   - zlib=1.2.11=h4dc903c_4
   - zstd=1.4.9=h322a384_0
-  - pip:
-    - pandas==0.22.0
-    - pymeshsim==0.0.1
