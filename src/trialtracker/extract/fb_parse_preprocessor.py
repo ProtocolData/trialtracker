@@ -2,9 +2,10 @@ import pandas as pd
 import os
 import sys
 import aact_querier as aq
+import numpy as np
 
 
-def prep_incremental_extraction(filepath='extracted_data/ct_fb_parser_data.csv', nct_col='#nct_id')
+def prep_incremental_extraction(filepath='extracted_data/ct_fb_parser_data.csv', nct_col='#nct_id'):
 	# Read a csv that contains NCT IDs.  Search 
 
 	path = os.path.abspath(os.path.dirname('.'))
@@ -37,7 +38,7 @@ def prep_incremental_extraction(filepath='extracted_data/ct_fb_parser_data.csv',
 
 	# Save file as input for fb clinical trial parser
 	out_path = os.path.join(path, "src/github.com/facebookresearch/Clinical-Trial-Parser/data/input/clinical_trials.csv")
-	fb_parser_output.to_csv(out_path, index=False, index=False)
+	fb_parser_output.to_csv(out_path, index=False)
 
 
 def combine_extractions():
@@ -70,6 +71,40 @@ def combine_extractions():
 	combined_df.to_csv(main_parsed_path, sep="\t")
 
 
+def extract_conditions():
+	path = os.path.abspath(os.path.dirname('.'))
+
+	# Read previously parsed data
+	ie_filepath='extracted_data/ie_parsed_clinical_trials.tsv'
+	main_parsed_path = os.path.join(path, ie_filepath)
+	ie=pd.read_csv(main_parsed_path, sep="\t", index_col=0)
+
+
+	# Read raw ct.gov downloaded data with conditions
+	ct_filepath='extracted_data/ct_fb_parser_data.csv'
+	ct_parsed_path = os.path.join(path, ct_filepath)
+	ct=pd.read_csv(ct_parsed_path, index_col=0)
+	ct['condition_list']=ct.conditions.apply(lambda x: x.split('|'))
+
+	# Recreate ie parsed format for ct conditions
+	cl=ct[['#nct_id','condition_list']].explode('condition_list')
+	cl['eligibility_type']='inclusion'
+	cl['criterion']=cl['condition_list']
+	cl['label']='custom:condition'
+	cl['term']=cl['condition_list']
+	cl['ner_score']=1.0
+	cl['concepts']=cl['condition_list']
+	cl['tree_numbers']='NaN'
+	cl['nel_score']=np.NaN
+
+	# Combine with previously parsed data
+	cldf=cl[['#nct_id', 'eligibility_type', 'criterion', 'label', 'term','ner_score', 'concepts', 'tree_numbers', 'nel_score']]
+	cat= pd.concat([cldf, ie], ignore_index=True, axis=0)
+	output=pd.merge(cat, ct[['#nct_id','start_date', 'lead_sponsor', 'overall_status', 'phase', 'enrollment','study_type', 'is_fda_regulated_drug', 'is_fda_regulated_device']],
+           on='#nct_id', how='left')
+	outpath='extracted_data/ie_parsed_clinical_trials_w_conditions.csv'
+	out_filepath = os.path.join(path, outpath)
+	output.to_csv(out_filepath)
 
 
 
